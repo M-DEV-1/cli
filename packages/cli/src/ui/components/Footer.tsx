@@ -36,6 +36,8 @@ import {
 } from '../../config/footerItems.js';
 import { isDevelopment } from '../../utils/installationInfo.js';
 
+const HOSTNAME = os.hostname();
+
 interface CwdIndicatorProps {
   targetDir: string;
   maxWidth: number;
@@ -184,8 +186,6 @@ export const Footer: React.FC = () => {
 
   const authType = config.getContentGeneratorConfig()?.authType;
   const [email, setEmail] = useState<string | undefined>();
-
-  const HOSTNAME = os.hostname();
 
   useEffect(() => {
     if (authType) {
